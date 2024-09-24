@@ -140,7 +140,6 @@ private fun captureImage(
                     val bitmap = loadBitmapFromUri(context, uri)
                     onImageCaptured(bitmap, uri.toString())
 
-                    // Save to SQLite database
                     saveImageToDatabase(context, uri.toString())
                 }
             }
@@ -176,7 +175,6 @@ private fun saveImageToDatabase(context: Context, imageUri: String) {
     val db = AppDatabase.getDatabase(context)
     val repository = ImageRepository(db.imageDao())
 
-    // Save image URI in a background thread
     CoroutineScope(Dispatchers.IO).launch {
         repository.insertImage(imageUri)
     }
