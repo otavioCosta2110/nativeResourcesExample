@@ -1,4 +1,4 @@
-package com.example.nativeres.database
+package com.example.nativeres
 
 import android.content.Context
 import androidx.room.Dao
