@@ -19,4 +19,4 @@ This app needs permissions for:
 
 These permissions can be found in `app/src/main/AndroidManifest.xml`.
 
-It doesn't look very good, but its not meant to look very good
+> It doesn't look very good, but its not meant to look very good
