@@ -20,9 +20,6 @@ data class ImageEntity(
 interface ImageDao {
     @Insert
     suspend fun insertImage(image: ImageEntity)
-
-    @Query("SELECT * FROM images")
-    suspend fun getAllImages(): List<ImageEntity>
 }
 
 @Database(entities = [ImageEntity::class], version = 1)
@@ -52,9 +49,5 @@ class ImageRepository(private val imageDao: ImageDao) {
     suspend fun insertImage(imageUri: String) {
         val image = ImageEntity(imageUri = imageUri)
         imageDao.insertImage(image)
-    }
-
-    suspend fun getAllImages(): List<ImageEntity> {
-        return imageDao.getAllImages()
     }
 }
